@@ -1,0 +1,129 @@
+Environment variables loaded:
+DB_HOST: undefined
+DB_USER: undefined
+DB_PASSWORD: ***undefined
+DB_NAME: undefined
+Database config loaded:
+Host: 127.0.0.1
+User: root
+Database: pro2
+✅ Database pool created successfully
+
+🚀 Trading Platform API Server started!
+📡 Server running on port 3002
+🌐 Environment: development
+🔗 API Base URL: http://localhost:3002/api
+💾 Database: MySQL
+🔄 WebSocket: Enabled
+⏰ Scheduled Tasks: Running
+  
+🔄 Initializing market data...
+Initializing market data...
+✅ Database connected successfully
+Cleared existing market prices
+Initialized prices for EURUSD: BID=1.085000, ASK=1.085150
+Initialized prices for GBPUSD: BID=1.265000, ASK=1.265200
+Initialized prices for USDJPY: BID=149.500000, ASK=149.515000
+Initialized prices for USDCHF: BID=0.912500, ASK=0.912680
+Initialized prices for USDCAD: BID=1.358000, ASK=1.358200
+Initialized prices for AUDUSD: BID=0.672000, ASK=0.672180
+Initialized prices for NZDUSD: BID=0.618000, ASK=0.618250
+Initialized prices for EURGBP: BID=0.859000, ASK=0.859180
+Initialized prices for EURJPY: BID=162.250000, ASK=162.275000
+Initialized prices for EURCHF: BID=1.000000, ASK=1.000200
+Initialized prices for EURAUD: BID=1.000000, ASK=1.000200
+Initialized prices for EURCAD: BID=1.000000, ASK=1.000200
+Initialized prices for EURNZD: BID=1.000000, ASK=1.000200
+Initialized prices for GBPJPY: BID=189.100000, ASK=189.130000
+Initialized prices for GBPCHF: BID=1.000000, ASK=1.000200
+Initialized prices for GBPAUD: BID=1.000000, ASK=1.000200
+Initialized prices for GBPCAD: BID=1.000000, ASK=1.000200
+Initialized prices for GBPNZD: BID=1.000000, ASK=1.000200
+Initialized prices for AUDJPY: BID=1.000000, ASK=1.000200
+Initialized prices for AUDCHF: BID=1.000000, ASK=1.000200
+Initialized prices for AUDCAD: BID=1.000000, ASK=1.000200
+Initialized prices for AUDNZD: BID=1.000000, ASK=1.000200
+Initialized prices for NZDJPY: BID=1.000000, ASK=1.000200
+Initialized prices for NZDCHF: BID=1.000000, ASK=1.000200
+Initialized prices for NZDCAD: BID=1.000000, ASK=1.000200
+Initialized prices for CADJPY: BID=1.000000, ASK=1.000200
+Initialized prices for CADCHF: BID=1.000000, ASK=1.000200
+Initialized prices for CHFJPY: BID=1.000000, ASK=1.000200
+Initialized prices for USDINR: BID=1.000000, ASK=1.000200
+Initialized prices for USDTRY: BID=1.000000, ASK=1.000200
+Initialized prices for USDZAR: BID=1.000000, ASK=1.000200
+Initialized prices for USDMXN: BID=1.000000, ASK=1.000200
+Initialized prices for USDTHB: BID=1.000000, ASK=1.000200
+Initialized prices for USDSEK: BID=1.000000, ASK=1.000200
+Initialized prices for USDNOK: BID=1.000000, ASK=1.000200
+Initialized prices for EURSEK: BID=1.000000, ASK=1.000200
+Initialized prices for EURNOK: BID=1.000000, ASK=1.000200
+Initialized prices for USDPLN: BID=1.000000, ASK=1.000200
+Initialized prices for BTCUSD: BID=1.000000, ASK=1.000200
+Initialized prices for ETHUSD: BID=1.000000, ASK=1.000200
+Initialized prices for BNBUSD: BID=1.000000, ASK=1.000200
+Initialized prices for SOLUSD: BID=1.000000, ASK=1.000200
+Initialized prices for XRPUSD: BID=1.000000, ASK=1.000200
+Initialized prices for ADAUSD: BID=1.000000, ASK=1.000200
+Initialized prices for DOGEUSD: BID=1.000000, ASK=1.000200
+Initialized prices for LTCUSD: BID=1.000000, ASK=1.000200
+Initialized prices for DOTUSD: BID=1.000000, ASK=1.000200
+Initialized prices for AVAXUSD: BID=1.000000, ASK=1.000200
+Initialized prices for XAUUSD: BID=1.000000, ASK=1.000200
+Initialized prices for XAGUSD: BID=1.000000, ASK=1.000200
+Initialized prices for XPTUSD: BID=1.000000, ASK=1.000200
+Initialized prices for XPDUSD: BID=1.000000, ASK=1.000200
+Initialized prices for WTIUSD: BID=1.000000, ASK=1.000200
+Initialized prices for BRENTUSD: BID=1.000000, ASK=1.000200
+Initialized prices for NATGASUSD: BID=1.000000, ASK=1.000200
+Initialized prices for COFFEEUSD: BID=1.000000, ASK=1.000200
+Initialized prices for CORNUSD: BID=1.000000, ASK=1.000200
+Initialized prices for WHEATUSD: BID=1.000000, ASK=1.000200
+Market data initialization completed
+✅ Market data initialized successfully
+Updating market prices...
+Starting position P&L updates...
+Starting position P&L updates...
+Found 2 open positions to update
+Batch updating 2 positions...
+Found 2 open positions to update
+Batch updating 2 positions...
+Position update completed: 2 updated, 0 errors
+Position update completed: 2 updated, 0 errors
+Updated prices for 58 symbols
+Updating market prices...
+Updated prices for 58 symbols
+Updating market prices...
+Starting position P&L updates...
+Starting position P&L updates...
+Found 6 open positions to update
+Batch updating 6 positions...
+Found 6 open positions to update
+Batch updating 6 positions...
+Position update completed: 6 updated, 0 errors
+Position update completed: 6 updated, 0 errors
+Updated prices for 58 symbols
+Updating market prices...
+Updated prices for 58 symbols
+Updating market prices...
+Starting position P&L updates...
+Starting position P&L updates...
+Found 10 open positions to update
+Batch updating 10 positions...
+Found 10 open positions to update
+Batch updating 10 positions...
+Position update completed: 10 updated, 0 errors
+Position update completed: 10 updated, 0 errors
+Updated prices for 58 symbols
+Updating market prices...
+Updated prices for 58 symbols
+Updating market prices...
+Starting position P&L updates...
+Starting position P&L updates...
+Found 14 open positions to update
+Batch updating 14 positions...
+Found 14 open positions to update
+Batch updating 14 positions...
+Position update completed: 14 updated, 0 errors
+Position update completed: 14 updated, 0 errors
+Updated prices for 58 symbols

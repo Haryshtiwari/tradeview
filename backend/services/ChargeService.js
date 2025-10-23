@@ -18,7 +18,7 @@ const normalizeChargeRow = (row) => ({
   tierLevel: row.tier_level,
   isActive: Boolean(row.is_active),
   effectiveFrom: row.effective_from,
-  effectiveUntil: row.effective_until,
+  effectiveUntil: row.effective_to,
   source: 'trading_charge'
 });
 
@@ -122,14 +122,14 @@ class ChargeService {
 
     const chargeRows = await executeQuery(
       `SELECT id, symbol_id, account_type, charge_type, charge_value, charge_unit, tier_level,
-              is_active, effective_from, effective_until
+              is_active, effective_from, effective_to
        FROM trading_charges
        WHERE is_active = 1
          AND (symbol_id = ? OR symbol_id IS NULL)
          AND (account_type = ? OR account_type = ?)
          AND (tier_level = ? OR tier_level = ?)
          AND (effective_from IS NULL OR effective_from <= NOW())
-         AND (effective_until IS NULL OR effective_until >= NOW())`,
+         AND (effective_to IS NULL OR effective_to >= NOW())`,
       [symbolId, accountType, DEFAULT_ACCOUNT_TYPE, tierLevel, DEFAULT_TIER_LEVEL]
     );
 

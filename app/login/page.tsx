@@ -97,7 +97,7 @@ export default function LoginPage() {
   }
 
   const demoCredentials = [
-    { label: "Demo User", email: "john.anderson@example.com", password: "password123" },
+    { label: "Demo User", email: "test@example.com", password: "password123" },
     { label: "Admin User", email: "admin@tradingplatform.com", password: "admin123" }
   ]
 

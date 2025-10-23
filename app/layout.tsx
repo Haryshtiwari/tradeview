@@ -6,6 +6,8 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navigation/navbar"
 import { AppProviders } from "@/contexts/AppProviders"
+import { Toaster } from "@/components/ui/toaster"
+import { Toaster as SonnerToaster } from "@/components/ui/sonner"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -43,6 +45,8 @@ export default function RootLayout({
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
               <Navbar />
               {children}
+              <Toaster />
+              <SonnerToaster />
             </ThemeProvider>
           </AppProviders>
         </Suspense>

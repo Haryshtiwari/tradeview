@@ -890,7 +890,6 @@ router.get('/users/:id', asyncHandler(async (req, res) => {
       leverage,
       currency,
       status,
-      auto_square_percent,
       created_at
     FROM trading_accounts
     WHERE user_id = ?
