@@ -1,0 +1,141 @@
+/* Watchlist Panel Animations and Styles */
+
+@keyframes watchlist-item-enter {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes price-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Watchlist item animations */
+.watchlist-item {
+  animation: watchlist-item-enter 0.4s ease-out forwards;
+  background: linear-gradient(-45deg, 
+    hsl(var(--card)) 0%, 
+    hsl(var(--card)/0.8) 50%, 
+    hsl(var(--card)) 100%);
+  background-size: 200% 200%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.watchlist-item:hover {
+  animation: gradient-shift 2s ease-in-out infinite;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px hsl(var(--primary)/0.2);
+}
+
+/* Price change animations */
+.price-positive {
+  animation: price-pulse 1s ease-in-out;
+  color: hsl(var(--success));
+}
+
+.price-negative {
+  animation: price-pulse 1s ease-in-out;
+  color: hsl(var(--destructive));
+}
+
+/* Button hover effects */
+.watchlist-buy-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.watchlist-buy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.watchlist-buy-btn:hover::before {
+  left: 100%;
+}
+
+.watchlist-sell-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.watchlist-sell-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.watchlist-sell-btn:hover::before {
+  left: 100%;
+}
+
+/* Glassmorphism effect */
+.watchlist-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Dark mode adjustments */
+.dark .watchlist-glass {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Loading spinner */
+.watchlist-spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid hsl(var(--primary));
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .watchlist-item {
+    padding: 0.75rem;
+  }
+  
+  .watchlist-item:hover {
+    transform: none;
+  }
+}

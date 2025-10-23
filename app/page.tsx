@@ -14,7 +14,7 @@ import { ChevronLeft } from "lucide-react"
 
 export default function TradingDashboard() {
   const [sidebarCollapsed, setSidebarCollapsed] = useSidebarCollapsed(false)
-  const [isWishlistOpen, setIsWishlistOpen] = useState(false)
+  const [isWatchlistOpen, setIsWatchlistOpen] = useState(true)
 
   return (
     <ProtectedRoute>
@@ -36,60 +36,60 @@ export default function TradingDashboard() {
 
             {/* Quick shortcuts removed from main - moved to mobile bottom nav per user request */}
 
-            {/* Chart Section - expands to available space */}
-            <section className="flex-1 min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] relative">
-              {/* On small screens stack vertically: chart -> wishlist -> positions
-                  On larger screens show chart + wishlist docked as sibling columns. */}
+            {/* Chart Section - balanced height to show positions table without scroll */}
+            <section className="flex-1 min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] lg:min-h-[65vh] relative">
+              {/* On small screens stack vertically: chart -> watchlist -> positions
+                  On larger screens show chart + watchlist docked as sibling columns. */}
               <div className="h-full w-full flex flex-col lg:flex-row">
                 {/* Chart column */}
-                <div className={`transition-all duration-300 relative ${isWishlistOpen ? 'lg:w-3/4 lg:h-full h-2/3' : 'w-full h-full'}`}>
-                  {/* Mobile wishlist toggle button */}
+                <div className={`transition-all duration-300 relative ${isWatchlistOpen ? 'lg:w-3/4 lg:h-full h-2/3' : 'w-full h-full'}`}>
+                  {/* Mobile watchlist toggle button */}
                   <div className="lg:hidden absolute top-2 right-2 z-50">
                     <button
                       type="button"
-                      aria-label="Toggle wishlist"
-                      onClick={() => setIsWishlistOpen(!isWishlistOpen)}
+                      aria-label="Toggle watchlist"
+                      onClick={() => setIsWatchlistOpen(!isWatchlistOpen)}
                       className="h-8 w-8 rounded bg-card/80 backdrop-blur shadow-md hover:bg-card/90 transition-all flex items-center justify-center"
                     >
-                      <ChevronLeft className={`w-4 h-4 transition-transform ${isWishlistOpen ? 'rotate-90' : '-rotate-90'}`} />
+                      <ChevronLeft className={`w-4 h-4 transition-transform ${isWatchlistOpen ? 'rotate-90' : '-rotate-90'}`} />
                     </button>
                   </div>
-                  <TradingChart key={isWishlistOpen ? 'split' : 'full'} />
+                  <TradingChart key={isWatchlistOpen ? 'split' : 'full'} />
                 </div>
 
-                {/* Dedicated tab column (independent space) - only on lg and up */}
-                <div className="hidden lg:flex w-16 items-center justify-center">
-                  {!isWishlistOpen && (
+                {/* Watchlist column - inline on mobile and lg, overlay on md */}
+                <div className={`transition-all duration-300 ${isWatchlistOpen ? 'lg:w-1/4 lg:h-full h-56' : 'w-0 h-0 overflow-hidden'}`}>
+                  <WishlistPanel isOpen={isWatchlistOpen} onClose={() => setIsWatchlistOpen(false)} inline={true} />
+                </div>
+
+                {/* Dedicated tab column (independent space) - only show when watchlist is closed */}
+                {!isWatchlistOpen && (
+                  <div className="hidden lg:flex w-16 items-center justify-center">
                     <button
                       type="button"
-                      aria-label="Open wishlist"
-                      onClick={() => setIsWishlistOpen(true)}
+                      aria-label="Open watchlist"
+                      onClick={() => setIsWatchlistOpen(true)}
                       className="h-32 w-full flex items-center justify-center bg-card/80 backdrop-blur shadow-md hover:bg-card/90 transition-all rounded-l px-1"
                     >
                       <div className="flex flex-col items-center gap-2">
                         <ChevronLeft className="w-5 h-5 text-foreground" />
                         <span className="text-xs text-foreground/90 tracking-wider" style={{writingMode: 'vertical-rl', transform: 'rotate(180deg)'}}>
-                          Wishlist
+                          Watchlist
                         </span>
                       </div>
                     </button>
-                  )}
-                </div>
-
-                {/* Wishlist column - inline on mobile and lg, overlay on md */}
-                <div className={`transition-all duration-300 ${isWishlistOpen ? 'lg:w-1/4 lg:h-full h-56' : 'w-0 h-0 overflow-hidden'}`}>
-                  <WishlistPanel isOpen={isWishlistOpen} onClose={() => setIsWishlistOpen(false)} inline={true} />
-                </div>
+                  </div>
+                )}
               </div>
             </section>
 
-            {/* Positions Table - fixed at bottom, scrolls if long */}
-            <section className="flex-shrink-0">
+            {/* Positions Table - adequate space for visibility without scroll */}
+            <section className="flex-shrink-0 min-h-[25vh] max-h-[35vh]">
               <PositionsTable />
             </section>
           </main>
 
-          {/* Wishlist removed per request */}
+          {/* Watchlist removed per request */}
         </div>
 
         {/* Bottom stats bar (fixed) */}

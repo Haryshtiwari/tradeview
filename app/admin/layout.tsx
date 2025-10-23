@@ -50,7 +50,7 @@ export default function AdminRootLayout({
       </head>
             <body className={`${poppins.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-poppins antialiased admin-scrollbar`}>
         <Suspense fallback={null}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
             {children}
           </ThemeProvider>
         </Suspense>

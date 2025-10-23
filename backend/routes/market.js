@@ -71,6 +71,42 @@ router.get('/categories', asyncHandler(async (req, res) => {
   res.json({ categories });
 }));
 
+// Search symbols for watchlist (with suggestions)
+router.get('/symbols/search', asyncHandler(async (req, res) => {
+  const query = req.query.q;
+  
+  if (!query || query.length < 1) {
+    return res.json({ symbols: [] });
+  }
+  
+  const searchPattern = `%${query.toUpperCase()}%`;
+  
+  const symbols = await executeQuery(
+    `SELECT 
+       s.id,
+       s.symbol,
+       s.name,
+       s.base_currency,
+       s.quote_currency,
+       ac.name as category_name
+     FROM symbols s
+     JOIN asset_categories ac ON s.category_id = ac.id
+     WHERE s.is_active = 1 
+     AND (s.symbol LIKE ? OR s.name LIKE ?)
+     ORDER BY 
+       CASE 
+         WHEN s.symbol LIKE ? THEN 1 
+         WHEN s.symbol LIKE ? THEN 2
+         ELSE 3 
+       END,
+       s.symbol ASC
+     LIMIT 10`,
+    [searchPattern, searchPattern, `${query.toUpperCase()}%`, searchPattern]
+  );
+  
+  res.json({ symbols });
+}));
+
 // Get symbol details
 router.get('/symbols/:id', asyncHandler(async (req, res) => {
   const symbolId = parseInt(req.params.id);
